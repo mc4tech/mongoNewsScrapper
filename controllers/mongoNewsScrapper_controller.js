@@ -1,3 +1,5 @@
+var express = require("express");
+var router = express.Router();
 // Requiring our Note and Article models
 var Note = require("../models/Note.js");
 var Article = require("../models/Article.js");
@@ -9,7 +11,7 @@ var cheerio = require("cheerio");
 // ======
 
 // A GET request to scrape the echojs website
-app.get("/scrape", function(req, res) {
+router.get("/scrape", function(req, res) {
   // First, we grab the body of the html with request
   request("http://www.espn.com/nfl", function(error, response, html) {
     // Then, we load that into cheerio and save it to $ for a shorthand selector
@@ -48,7 +50,7 @@ app.get("/scrape", function(req, res) {
 });
 
 // This will get the articles we scraped from the mongoDB
-app.get("/articles", function(req, res) {
+router.get("/articles", function(req, res) {
   // Grab every doc in the Articles array
   Article.find({}, function(error, doc) {
     // Log any errors
@@ -63,7 +65,7 @@ app.get("/articles", function(req, res) {
 });
 
 // Grab an article by it's ObjectId
-app.get("/articles/:id", function(req, res) {
+router.get("/articles/:id", function(req, res) {
   // Using the id passed in the id parameter, prepare a query that finds the matching one in our db...
   Article.findOne({ "_id": req.params.id })
   // ..and populate all of the notes associated with it
@@ -83,7 +85,7 @@ app.get("/articles/:id", function(req, res) {
 
 
 // Create a new note or replace an existing note
-app.post("/articles/:id", function(req, res) {
+router.post("/articles/:id", function(req, res) {
   // Create a new note and pass the req.body to the entry
   var newNote = new Note(req.body);
 
@@ -111,3 +113,5 @@ app.post("/articles/:id", function(req, res) {
     }
   });
 });
+
+module.exports = router;
