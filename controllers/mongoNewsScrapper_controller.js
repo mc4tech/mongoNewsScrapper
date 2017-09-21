@@ -10,6 +10,14 @@ var cheerio = require("cheerio");
 // Routes
 // ======
 
+//get route to index
+router.get("/", function(req, res) {
+  
+  
+    
+    res.render("index");
+});
+
 // A GET request to scrape the echojs website
 router.get("/scrape", function(req, res) {
   // First, we grab the body of the html with request
