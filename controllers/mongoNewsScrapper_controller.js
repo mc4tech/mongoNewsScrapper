@@ -1,5 +1,6 @@
 var express = require("express");
 var router = express.Router();
+var mongoose = require("mongoose");
 // Requiring our Note and Article models
 var Note = require("../models/Note.js");
 var Article = require("../models/Article.js");
@@ -12,10 +13,17 @@ var cheerio = require("cheerio");
 
 //get route to index
 router.get("/", function(req, res) {
-  
-  
-    
-    res.render("index");
+ Article.find({}, function(err, docs){
+  if (err) throw err;
+  // console.log(docs);
+  var dataObject = {
+    article_data: docs
+  };
+  // console.log("dataObject");
+  console.log(dataObject);
+ });
+      
+  res.render("index", dataObject);
 });
 
 // A GET request to scrape the echojs website
