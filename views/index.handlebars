@@ -3,10 +3,12 @@
 		<div>
 			<img src="{{this.image}}">
 		</div>
-		<div>
-			{{this.title}}
-			{{this.link}}
+		<div id ={{@index}}>
+			<p id = {{this.id}}>
+				{{this.title}}
+				{{this.link}}
+			</p>
 		</div>
 	{{/each}}
 </div>
-      <!-- <div id="notes"></div> -->
+      <div id="notes"></div>

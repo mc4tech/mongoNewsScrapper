@@ -23,7 +23,7 @@ router.get("/", function(req, res) {
   console.log(dataObject);
   res.render("index", dataObject);
  });
-      
+      // res.render("index");
 
 });
 
