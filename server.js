@@ -32,8 +32,8 @@ app.set("view engine", "handlebars");
 app.use(express.static("public"));
 
 // Database configuration with mongoose
-// mongoose.connect("mongodb://localhost/mongo-news-scrapper");
-mongoose.connect("mongodb://heroku_h8dd0v12:d4mvaopvotk4qqcjdasifn9ju3@ds155424.mlab.com:55424/heroku_h8dd0v12");
+mongoose.connect("mongodb://localhost/mongo-news-scrapper");
+// mongoose.connect("mongodb://heroku_h8dd0v12:d4mvaopvotk4qqcjdasifn9ju3@ds155424.mlab.com:55424/heroku_h8dd0v12");
 var db = mongoose.connection;
 
 // Show any mongoose errors

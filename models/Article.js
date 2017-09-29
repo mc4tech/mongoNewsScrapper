@@ -10,6 +10,11 @@ var ArticleSchema = new Schema({
     type: String,
     required: true
   },
+  // title is a required string
+  content: {
+    type: String,
+    required: true
+  },
   // link is a required string
   link: {
     type: String,

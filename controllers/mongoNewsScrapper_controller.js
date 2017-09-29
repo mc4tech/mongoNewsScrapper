@@ -40,7 +40,8 @@ router.get("/scrape", function(req, res) {
       var result = {};
 
       // Add the text and href of every link, and save them as properties of the result object
-      result.title = $(this).children("a").text();
+      result.title = $(this).children("a").children("div").children("h1").text();
+      result.content = $(this).children("a").children("div").children("p").text();
       result.link = $(this).children("a").attr("href");
       result.image = $(this).children("a").children("figure").children("picture").children("source").attr("data-srcset");
 
