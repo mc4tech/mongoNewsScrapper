@@ -1,32 +1,35 @@
-<div id="articles" class="col-md-8 col-md-offset-2">
-	{{#each article_data}}
-		<div class="card text-center">
-			<div class="card-header">
-				<h4 class="card-title">{{this.title}}</h4>
-				<ul class="nav nav-pills card-header-pills">
-					<li class="nav-item">
-						<a class="nav-link active" href="#">Active</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">Link</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link disabled" href="#">Disabled</a>
-					</li>
-				</ul>
+<div class="row justify-content-center">
+	<div id="articles" class="col-md-10">
+		{{#each article_data}}
+			<div class="justify-content-center card text-center">
+				<div class="card-header text-white bg-primary">
+					<h4 class="card-title">{{this.title}}</h4>
+					<ul class="nav nav-pills card-header-pills">
+						<li class="nav-item">
+							<a class="nav-link active" href="#">Active</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-danger" href="#">Link</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link disabled" href="#">Disabled</a>
+						</li>
+					</ul>
+				</div>
+				<!-- <img src="{{this.image}}"> -->
+			
+				<div id ={{@index}} class="card-body">
+					<p class="card-text" data-id = {{this.id}}>
+						<!-- {{this.title}} -->
+						{{this.content}}
+					</p>
+					<a href="https://www.espn.com{{this.link}}" target="#">www.espn.com{{this.link}}</a>
+				</div>
 			</div>
-			<!-- <img src="{{this.image}}"> -->
-		
-			<div id ={{@index}} class="card-body">
-				<p class="card-text" data-id = {{this.id}}>
-					<!-- {{this.title}} -->
-					{{this.content}}
-				</p>
-				<a href="https://www.espn.com{{this.link}}" target="#">www.espn.com{{this.link}}</a>
-			</div>
-		</div>
-	{{/each}}
-</div>
+			<br>
+		{{/each}}
+	</div>
+</div>	
     <!-- <div id="notes"></div> -->
     <div class="modal fade" id="notes" tabindex="-1" role="dialog" aria-labelledby="notes" aria-hidden="true">
 		<div class="modal-dialog" role="document">
