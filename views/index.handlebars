@@ -4,17 +4,16 @@
 			<div class="justify-content-center card text-center">
 				<div class="card-header text-white bg-primary">
 					<h4 class="card-title">{{this.title}}</h4>
-					<ul class="nav nav-pills card-header-pills">
+					<!-- <ul class="nav nav-pills card-header-pills">
 						<li class="nav-item">
-							<a class="nav-link active" href="#">Active</a>
+							<a class="nav-link btn btn-info" href="#">Article Notes</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-danger" href="#">Link</a>
+							<a class="nav-link btn-danger" href="#">Delete From Saved</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link disabled" href="#">Disabled</a>
-						</li>
-					</ul>
+					</ul> -->
+					<button id="articleNotes" type="button" class="btn btn-info" data-toggle="modal" data-target="#notes">Article Notes</button>
+					<button type="button" class="btn btn-danger">Delete From Saved</button>
 				</div>
 				<!-- <img src="{{this.image}}"> -->
 			
@@ -23,7 +22,7 @@
 						<!-- {{this.title}} -->
 						{{this.content}}
 					</p>
-					<a href="https://www.espn.com{{this.link}}" target="#">www.espn.com{{this.link}}</a>
+					<a href="https://www.espn.com{{this.link}}" target="#">https://www.espn.com{{this.link}}</a>
 				</div>
 			</div>
 			<br>
