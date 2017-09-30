@@ -1,14 +1,16 @@
 <div class="row justify-content-center">
 	<div id="articles" class="col-md-10">
+		<!-- loops through the articl_data -->
 		{{#each article_data}}
+		<!-- card divs to hold the Article info -->
 			<div class="justify-content-center card text-center">
 				<div class="card-header text-white bg-primary">
 					<h4 class="card-title">{{this.title}}</h4>
-					<button id="articleNotes" type="button" class="btn btn-info" data-toggle="modal" data-target="#notes">Article Notes</button>
+					<!-- this btn controls the modal for article notes -->
+					<button data-id="{{this.id}}" type="button" class="btn btn-info articleNotes" data-toggle="modal" data-target="#notes">Article Notes</button>
 					<button type="button" class="btn btn-danger">Delete From Saved</button>
 				</div>
-				
-			
+								
 				<div id ={{@index}} class="card-body">
 					<img src="{{this.image}}" class="rounded mx-auto d-block">
 					<p class="card-text" data-id = {{this.id}}>
@@ -22,12 +24,12 @@
 		{{/each}}
 	</div>
 </div>	
-    <!-- <div id="notes"></div> -->
+ 
 <div class="modal fade" id="notes" tabindex="-1" role="dialog" aria-labelledby="notes" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 	    <div class="modal-content">
      	    <div class="modal-header">
-	     	   <h5 class="modal-title" id="notesModalLabel">New message</h5>
+	     	   <h5 class="modal-title" id="notesModalLabel">Notes For Article {{this.id}}</h5>
 	        	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 	          		<span aria-hidden="true">&times;</span>
 	        	</button>
@@ -35,18 +37,17 @@
 		    <div class="modal-body">
 		        <form>
 		  			<div class="form-group">
-		            	<label for="recipient-name" class="form-control-label">Recipient:</label>
-		            	<input type="text" class="form-control" id="recipient-name">
+		            	<textarea class="form-control" id="notes-text">No notes for this article yet.</textarea>
 		          	</div>
 		          	<div class="form-group">
-		            	<label for="message-text" class="form-control-label">Message:</label>
+		            	<label for="message-text" class="form-control-label">New Note:</label>
 		            	<textarea class="form-control" id="message-text"></textarea>
 		          	</div>
 		        </form>
 		    </div>
 		    <div class="modal-footer">
 		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-		        <button type="button" class="btn btn-primary">Send message</button>
+		        <button type="button" class="btn btn-primary" id="savenote" data-dismiss="modal">Save Note</button>
 	    	</div>
 	    </div>
 	</div>
