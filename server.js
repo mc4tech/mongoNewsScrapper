@@ -31,9 +31,10 @@ app.set("view engine", "handlebars");
 // Make public a static dir
 app.use(express.static("public"));
 
-// Database configuration with mongoose
-mongoose.connect("mongodb://localhost/mongo-news-scrapper");
-// mongoose.connect("mongodb://heroku_h8dd0v12:d4mvaopvotk4qqcjdasifn9ju3@ds155424.mlab.com:55424/heroku_h8dd0v12");
+//Local Database configuration with mongoose
+// mongoose.connect("mongodb://localhost/mongo-news-scrapper");
+//mLab Database configuration with mongoose
+mongoose.connect("mongodb://heroku_h8dd0v12:d4mvaopvotk4qqcjdasifn9ju3@ds155424.mlab.com:55424/heroku_h8dd0v12");
 var db = mongoose.connection;
 
 // Show any mongoose errors
